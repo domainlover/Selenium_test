@@ -2,6 +2,8 @@ image: Ubuntu
 
 stack: jdk 11
 
+
+
 branches:
   only:
     - master
@@ -9,7 +11,8 @@ branches:
 build: off
 
 install:
-  - java -jar ./artifacts/app-callback.jar &
+  # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
+  - java -jar ./artifacts/app-callback.jar -P:profile=test &
   - chmod +x gradlew
 
 build_script:
