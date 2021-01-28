@@ -9,8 +9,8 @@ branches:
 build: off
 
 install:
-  - java -Duser.language=en -Duser.country=US -jar ./artifacts/app-callback.jar &
+  - java -jar ./artifacts/app-callback.jar &
   - chmod +x gradlew
 
 build_script:
-  - ./gradlew test -DchromeHeadless=true
+  - ./gradlew test --info "-DchromeHeadless=true"

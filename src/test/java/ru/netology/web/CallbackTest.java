@@ -22,6 +22,9 @@ class CallbackTest {
         System.setProperty("webdriver.chrome.driver", "C://tmp//chromedriver.exe");
     }
 
+
+
+
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
