@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CallbackTest {
     private WebDriver driver;
 
-    @BeforeAll
-    static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", ".\\chromedriver.exe");
-    }
+    //@BeforeAll
+    //static void setUpAll() {
+       // System.setProperty("webdriver.chrome.driver", "..\\chromedriver.exe");
+   // }
 
     @BeforeEach
     void setUp() {
