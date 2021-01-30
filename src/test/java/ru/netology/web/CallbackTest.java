@@ -14,13 +14,47 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CallbackTest {
-    private WebDriver driver;
+class Util {
+    public enum OS {
+        WINDOWS, LINUX, MAC, SOLARIS
+    };// Operating systems.
 
-@BeforeAll
-static void setUpAll() {
-System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    private static OS os = null;
+
+    public static OS getOS() {
+        if (os == null) {
+            String operSys = System.getProperty("os.name").toLowerCase();
+            if (operSys.contains("win")) {
+                os = OS.WINDOWS;
+            } else if (operSys.contains("nix") || operSys.contains("nux")
+                    || operSys.contains("aix")) {
+                os = OS.LINUX;
+            } else if (operSys.contains("mac")) {
+                os = OS.MAC;
+            } else if (operSys.contains("sunos")) {
+                os = OS.SOLARIS;
+            }
+        }
+        return os;
+    }
 }
+
+class CallbackTest {
+    //private WebDriver driver;
+
+
+    @BeforeAll
+    static void setUpAll() {
+        switch (Util.getOS()) {
+            case WINDOWS:
+                System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+                break;
+            case LINUX:
+                System.setProperty("webdriver.chrome.driver", "chromedriver");
+        }
+    }
+
+    private WebDriver driver;
 
     @BeforeEach
     void setUp() {
