@@ -40,8 +40,7 @@ class Util {
 }
 
 class CallbackTest {
-    //private WebDriver driver;
-
+    
 
     @BeforeAll
     static void setUpAll() {
@@ -51,6 +50,7 @@ class CallbackTest {
                 break;
             case LINUX:
                 System.setProperty("webdriver.chrome.driver", "chromedriver");
+                break;
         }
     }
 
